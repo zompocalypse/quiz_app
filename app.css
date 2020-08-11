@@ -1,5 +1,53 @@
 /* Your styles should be mobile-first and responsive */
+main {
+  margin: 10px;
+}
 
+body {
+  max-width: 600px;
+  margin: auto;
+}
+
+h1 {
+ font-size: 30px;
+ text-align: center;
+}
+
+h2 {
+ font-size: 25px;
+}
+
+h3 {
+font-size: 20px;
+}
+
+.questionChoice {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 18px;
+  user-select: none;
+}
+
+.questionCount {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.scorekeeper {
+  border-style: solid;
+  background-color: #2196F3;
+  padding: 10px 20px;
+  line-height: 0em;
+}
+
+@media all and (max-width: 600px) {
+  
+  }
+}
 /** 
   * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
   *

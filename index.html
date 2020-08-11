@@ -21,16 +21,35 @@
 
       </div>
       <div class="quesitons">
-        <h2>Question 1 of 5</h2>
+        <div class="questionCount">
+          <h2>Question 1 of 5</h2>
+          <div class="scorekeeper">
+            <p>correct: 1</p>
+            <p>incorrect: 2</p>
+          </div>
+        </div>
+        <h3>This is the first question!</h3>
       </div>
-      <input type="radio" name="answers" id="answer1" value="answer1">
-      <label for="answer1">Answer 1 goes here</label>
-      <input type="radio" name="answers" id="answer2" value="answer2">
-      <label for="answer2">Answer 2 goes here</label>
-      <input type="radio" name="answers" id="answer3" value="answer3">
-      <label for="answer3">Answer 3 goes here</label>
-      <input type="radio" name="answers" id="answer4" value="answer4">
-      <label for="answer4">Answer 4 goes here</label>
+      <div class="questionSelection">
+        <label class="questionChoice">
+          <input type="radio" name="answers" id="answer1" value="answer1" checked="checked">
+          <span class="checkmark">Answer 1 goes here</span>
+        </label>
+        <label class="questionChoice">
+          <input type="radio" name="answers" id="answer2" value="answer2">
+          <span class="checkmark">Answer 2 goes here</span>
+        </label>
+        <label class="questionChoice">
+          <input type="radio" name="answers" id="answer3" value="answer3">
+          <span class="checkmark">Answer 3 goes here</span>
+        </label>
+        <label class="questionChoice">
+          <input type="radio" name="answers" id="answer4" value="answer4">
+          <span class="checkmark">Answer 4 goes here</span>
+      </div>
+      <div class="container">
+        <button>Submit</button>
+      </div>
     </div>
 
   </main>
