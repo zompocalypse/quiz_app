@@ -23,8 +23,8 @@ const STORE = {
         'Luxury Ball'
       ],
       correctAnswer: 'Master Ball',
-      image: 'img/pokeball.jpg'
-
+      image: 'img/pokeball.jpg',
+      explanation: 'insert explanation'
     },
     {
       question: 'Which of these pairs is not a Pokémon game version?',
@@ -35,7 +35,8 @@ const STORE = {
         'FireRed and LeafGreen'
       ],
       correctAnswer: 'Rock and Stone',
-      image:'img/pokef.jpg'
+      image:'img/pokef.jpg',
+      explanation: 'insert explanation'
     },
     {
       question: 'What is Pikachu exactly?',
@@ -46,7 +47,8 @@ const STORE = {
         'Hedgehog'
       ],
       correctAnswer: 'Mouse',
-      image:'img/pikama.jpg'
+      image:'img/pikama.jpg',
+      explanation: 'insert explanation'
     },
     {
       question: 'How many times has Ash died?',
@@ -57,12 +59,11 @@ const STORE = {
         '12'
       ],
       correctAnswer: '3',
-      image:'img/ashd.jpg'
-
+      image:'img/ashd.jpg',
+      explanation: 'insert explanation'
     }
   ],
-  quizStarted: false,
-  quizCompleted: false,
   questionNumber: 0,
-  score: 0
+  score: 0,
+  incorrect: 0
 };

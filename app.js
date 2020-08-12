@@ -15,25 +15,24 @@
  *
  */
 
-/********** TEMPLATE GENERATION FUNCTIONS **********/
+/********** TEMPLATE GENERATION AND RENDER FUNCTIONS **********/
 
-// These functions return HTML templates
-function generateHTML() {
-  let question = STORE.questions[STORE.questionNumber];
-  if(STORE.quizStarted === false){
-    return `
-       <div class="container">
-            <image src = '/img/pokestart.jpg'
-            <h3>Press the button below to get started</h3>
-            <div class="center">
-                <button class="gettingStarted button">Start</button>
-            </div>
-        </div>
-    `;
-  } 
-  if(STORE.quizCompleted === true){
-    if(STORE.score < 5){
-      return `
+// These functions return HTML templates and render them
+function renderStartPage(){
+  $('main').html(`
+    <div class="container">
+         <image src = 'img/pokestart.jpg'
+         <h3>Press the button below to get started</h3>
+         <div class="center">
+             <button class="gettingStarted button">Start</button>
+         </div>
+     </div>
+ `);
+}
+
+function renderFinalPage(){
+  if(STORE.score < 5){
+    $('main').html(`
         <div class="container">
             <img src="img/overwhelmed.png" alt="screenshot from Pokémon video game where the player was defeated">
             <h2>You got ${STORE.score} of 5</h2>
@@ -43,9 +42,9 @@ function generateHTML() {
                 <button class="restart button">Restart?</button>
             </div>
         </div>
-    `;
-    } else {
-      return `
+        `);
+  } else {
+    $('main').html(`
         <div class="container">
             <img src="img/leagueWin.jpg" alt="Ash holding the Pokémon Legaue trophy with his team">
             <h2>You got ${STORE.score} of 5</h2>
@@ -56,58 +55,107 @@ function generateHTML() {
                 <button class="restart button">Restart?</button>
             </div>
         </div>
-    `;
-    }
-  } else {
-    return `
+        `);
+  }
+}
+
+function renderQuestionPage(){
+  let question = STORE.questions[STORE.questionNumber];
+  $('main').html(`
+    <div class="container">
+        <div class="questions">
+            <div class="questionCount">
+                <h2>Question ${STORE.questionNumber +1} of 5</h2>
+                <div class="scorekeeper">
+                    <p>correct: ${STORE.score}</p>
+                    <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
+                </div>
+            </div>
+            <img class='hero' src='${question.image}' alt=''>
+            <h3>${question.question}</h3>
+            <form class="answerSelection">
+                <label class="answerChoice">
+                    <input type="radio" name="answers" id="answer1" value="${question.answers[0]}" required>
+                    <span class="checkmark">${question.answers[0]}</span>
+                </label>
+                <label class="answerChoice">
+                    <input type="radio" name="answers" id="answer2" value="${question.answers[1]}">
+                    <span class="checkmark">${question.answers[1]}</span>
+                </label>
+                <label class="answerChoice">
+                    <input type="radio" name="answers" id="answer3" value="${question.answers[2]}">
+                    <span class="checkmark">${question.answers[2]}</span>
+                </label>
+                <label class="answerChoice">
+                    <input type="radio" name="answers" id="answer4" value="${question.answers[3]}">
+                    <span class="checkmark">${question.answers[3]}</span>
+                </label>
+                <div>
+                    <p class="results"></p>
+                </div>
+                <div class="center">
+                    <button class="button">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    `);
+}
+
+function renderSolutionCorrect(){
+  let question = STORE.questions[STORE.questionNumber];
+  $('main').html(`
         <div class="container">
             <div class="questions">
                 <div class="questionCount">
                     <h2>Question ${STORE.questionNumber +1} of 5</h2>
                     <div class="scorekeeper">
                         <p>correct: ${STORE.score}</p>
-                        <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
+                        <p>incorrect: ${STORE.incorrect}</p>
                     </div>
                 </div>
                 <img class='hero' src='${question.image}' alt=''>
                 <h3>${question.question}</h3>
-                <form class="answerSelection">
-                    <label class="answerChoice">
-                        <input type="radio" name="answers" id="answer1" value="${question.answers[0]}" required>
-                        <span class="checkmark">${question.answers[0]}</span>
-                    </label>
-                    <label class="answerChoice">
-                        <input type="radio" name="answers" id="answer2" value="${question.answers[1]}">
-                        <span class="checkmark">${question.answers[1]}</span>
-                    </label>
-                    <label class="answerChoice">
-                        <input type="radio" name="answers" id="answer3" value="${question.answers[2]}">
-                        <span class="checkmark">${question.answers[2]}</span>
-                    </label>
-                    <label class="answerChoice">
-                        <input type="radio" name="answers" id="answer4" value="${question.answers[3]}">
-                        <span class="checkmark">${question.answers[3]}</span>
-                    </label>
+                <form class="nextSelection">
+                    <div>
+                        <h3>You are correct!</h3>
+                        <p>${question.explanation}</p>
+                    </div>
                     <div class="center">
-                        <button class="button">Submit</button>
+                        <button class="button">Next</button>
                     </div>
                 </form>
             </div>
         </div>
-    `;
-  } 
+    `);
 }
 
-function main(){
-  renderPage();
-}
-
-/********** RENDER FUNCTION(S) **********/
-
-// This function conditionally replaces the contents of the <main> tag based on the state of the store
-function renderPage(){
-  let html = generateHTML();
-  $('main').html(html);
+function renderSolutionIncorrect(){
+  let question = STORE.questions[STORE.questionNumber];
+  $('main').html(`
+          <div class="container">
+              <div class="questions">
+                  <div class="questionCount">
+                      <h2>Question ${STORE.questionNumber +1} of 5</h2>
+                      <div class="scorekeeper">
+                          <p>correct: ${STORE.score}</p>
+                          <p>incorrect: ${STORE.incorrect}</p>
+                      </div>
+                  </div>
+                  <img class='hero' src='${question.image}' alt=''>
+                  <h3>${question.question}</h3>
+                  <form class="nextSelection">
+                    <div>
+                        <h3>Sorry, you are incorrect!</h3>
+                        <p>${question.explanation}</p>
+                    </div>
+                    <div class="center">
+                        <button class="button">Next</button>
+                    </div>
+                </form>
+              </div>
+          </div>
+      `);
 }
 
 /********** EVENT HANDLER FUNCTIONS **********/
@@ -116,27 +164,43 @@ function renderPage(){
 function submitAnswer(event){
   event.preventDefault();
   let answer = $('input[name=answers]:checked').val();
-  STORE.questions[STORE.questionNumber].correctAnswer === answer ? STORE.score++ : console.log('wrong');
-  STORE.questionNumber < 4 ? STORE.questionNumber++ : STORE.quizCompleted = true;
-  renderPage();
+  if(STORE.questions[STORE.questionNumber].correctAnswer === answer){
+    STORE.score++;
+    renderSolutionCorrect();
+  } else {
+    STORE.incorrect++;
+    renderSolutionIncorrect();
+  }
+}
+
+function nextQuestion(event){
+  event.preventDefault();
+  if(STORE.questionNumber < STORE.questions.length - 1){
+    STORE.questionNumber++;
+    renderQuestionPage();
+  } else {
+    renderFinalPage();
+  }
 }
 
 function getStarted(event){
   event.preventDefault();
-  STORE.quizStarted = true;
-  renderPage();
+  renderQuestionPage();
 }
 
 function restartIt(event){
   event.preventDefault();
-  STORE.quizStarted = false;
-  STORE.quizCompleted = false;
   STORE.score = 0;
   STORE.questionNumber = 0;
-  renderPage();
+  renderStartPage();
+}
+
+function main(){
+  renderStartPage();
 }
 
 $('main').on('submit','.answerSelection',submitAnswer);
+$('main').on('submit','.nextSelection',nextQuestion);
 $('main').on('click','.gettingStarted',getStarted);
 $('main').on('click','.restart',restartIt);
 
