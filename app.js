@@ -19,7 +19,7 @@
 // These functions return HTML templates
 function generateHTML() {
   let question = STORE.questions[STORE.questionNumber];
-  if(STORE.quizStarted == false){
+  if(STORE.quizStarted === false){
     return `
         <div class="container">
             <h3>Press the button below to get started</h3>
@@ -27,7 +27,7 @@ function generateHTML() {
         </div>
     `;
   } 
-  if(STORE.quizCompleted == true){
+  if(STORE.quizCompleted === true){
     return `
         <div class="container">
             <h3>You finished!</h3>
@@ -73,7 +73,7 @@ function generateHTML() {
 
 function main(){
   renderPage();
-  STORE.quizStarted == false;
+  STORE.quizStarted === false;
 }
 
 /********** RENDER FUNCTION(S) **********/
@@ -90,7 +90,7 @@ function renderPage(){
 function submitAnswer(event){
   event.preventDefault();
   let answer = $('input[name=answers]:checked').val();
-  STORE.questions[STORE.questionNumber].correctAnswer == answer ? STORE.score++ : console.log('wrong');
+  STORE.questions[STORE.questionNumber].correctAnswer === answer ? STORE.score++ : console.log('wrong');
   STORE.questionNumber < 4 ? STORE.questionNumber++ : STORE.quizCompleted = true;
   renderPage();
 }
