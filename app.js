@@ -21,7 +21,8 @@ function generateHTML() {
   let question = STORE.questions[STORE.questionNumber];
   if(STORE.quizStarted === false){
     return `
-        <div class="container">
+       <div class="container">
+            <image src = '/img/pokestart.jpg'
             <h3>Press the button below to get started</h3>
             <div class="center">
                 <button class="gettingStarted button">Start</button>

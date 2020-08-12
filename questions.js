@@ -22,7 +22,9 @@ const STORE = {
         'Master Ball',
         'Luxury Ball'
       ],
-      correctAnswer: 'Master Ball'
+      correctAnswer: 'Master Ball',
+      image: 'img/pokeball.jpg'
+
     },
     {
       question: 'Which of these pairs is not a Pokemon game version?',
@@ -32,7 +34,8 @@ const STORE = {
         'Rock and Stone',
         'FireRed and LeafGreen'
       ],
-      correctAnswer: 'Rock and Stone'
+      correctAnswer: 'Rock and Stone',
+      image:'img/pokef.jpg'
     },
     {
       question: 'What is Pikachu exactly?',
@@ -42,7 +45,8 @@ const STORE = {
         'Cat',
         'Mouse'
       ],
-      correctAnswer: 'Mouse'
+      correctAnswer: 'Mouse',
+      image:'img/pikama.jpg'
     },
     {
       question: 'How many times has Ash died?',
@@ -52,7 +56,9 @@ const STORE = {
         '7',
         '12'
       ],
-      correctAnswer: '3'
+      correctAnswer: '3',
+      image:'img/ashd.jpg'
+
     }
   ],
   quizStarted: false,
