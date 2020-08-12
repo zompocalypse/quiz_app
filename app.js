@@ -30,7 +30,8 @@ function generateHTML() {
   if(STORE.quizCompleted === true){
     return `
         <div class="container">
-            <h3>You finished!</h3>
+            <h2>You finished!</h2>
+            <h3>You got ${STORE.score} of 5</h3>
             <button class="restart">Restart?</button>
         </div>
     `;
