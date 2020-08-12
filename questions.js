@@ -1,26 +1,56 @@
 'use strict';
-const store = {
+const STORE = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'What color is broccoli?',
+      question: 'Who is Ash Ketchum?',
       answers: [
-        'red',
-        'orange',
-        'pink',
-        'green'
+        'Pokemon Trainer',
+        'Yu-Gi-Oh! Master',
+        'A Wizard at Hogwarts',
+        'A Jedi'
       ],
-      correctAnswer: 'green'
+      correctAnswer: 'Pokemon Trainer'
     },
     {
-      question: 'What is the current year?',
+      question: 'Where is a Yu-Gi-Oh! match played?',
       answers: [
-        '1970',
-        '2015',
-        '2019',
-        '2005'
+        'Pokemon Arena',
+        'Outside',
+        'Duel Terminal',
+        'On a table'
       ],
-      correctAnswer: '2019'
+      correctAnswer: 'Duel Terminal'
+    },
+    {
+      question: 'What does MTG stand for?',
+      answers: [
+        'Minimum to get',
+        'Magic the Gathering',
+        'DMaximum time gained',
+        'Meet the group'
+      ],
+      correctAnswer: 'Magic the Gathering'
+    },
+    {
+      question: 'What is Pikachu?',
+      answers: [
+        'Hedgehog',
+        'Kangaroo',
+        'Cat',
+        'Mouse'
+      ],
+      correctAnswer: 'Mouse'
+    },
+    {
+      question: 'What is Yusei searching for?',
+      answers: [
+        'Millennial puzzle pieces',
+        'Dragon Balls',
+        'Triforce of Light',
+        'Demon Shards'
+      ],
+      correctAnswer: 'Millennial puzzle pieces'
     }
   ],
   quizStarted: false,
