@@ -15,7 +15,7 @@ const STORE = {
       explanation: 'All towns in the Kanto region are named after colors.  The towns are named Viridian City, Pewter City, Cerulean City, Vermilion City, Lavender Town, Celadon City, Fuchsia City.  Although not a color, Pallet Town, Ash\'s fits the pattern.'
     },
     {
-      question: 'What is the most effective Poke Ball in the game?',
+      question: 'What is the most effective Poké Ball in the game?',
       answers: [
         'Great Ball',
         'Ultra Ball',
@@ -25,7 +25,7 @@ const STORE = {
       correctAnswer: 'Master Ball'
     },
     {
-      question: 'Which of these pairs is not a Pokemon game version?',
+      question: 'Which of these pairs is not a Pokémon game version?',
       answers: [
         'Diamond and Pearl',
         'Sword and Shield',
@@ -37,10 +37,10 @@ const STORE = {
     {
       question: 'What is Pikachu exactly?',
       answers: [
-        'Hedgehog',
+        'Mouse',
         'Squirrel',
         'Cat',
-        'Mouse'
+        'Hedgehog'
       ],
       correctAnswer: 'Mouse'
     },
