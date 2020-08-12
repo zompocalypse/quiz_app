@@ -17,129 +17,101 @@
 /********** TEMPLATE GENERATION FUNCTIONS **********/
 
 // These functions return HTML templates
+function generateHTML() {
+  let question = STORE.questions[STORE.questionNumber];
+  if(STORE.quizStarted == false){
+    return `
+        <div class="container">
+            <h3>Press the button below to get started</h3>
+            <button class="gettingStarted">Go!</button>
+        </div>
+    `;
+  } 
+  if(STORE.quizCompleted == true){
+    return `
+        <div class="container">
+            <h3>You finished!</h3>
+            <button class="restart">Restart?</button>
+        </div>
+    `;
+  } else {
+    return `
+        <div class="container">
+            <div class="quesitons">
+                <div class="questionCount">
+                    <h2>Question ${STORE.questionNumber +1} of 5</h2>
+                    <div class="scorekeeper">
+                        <p>correct: ${STORE.score}</p>
+                        <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
+                    </div>
+                </div>
+                <h3>${question.question}</h3>
+                <form class="answerSelection">
+                    <label class="answerChoice">
+                        <input type="radio" name="answers" id="answer1" value="${question.answers[0]}">
+                        <span class="checkmark">${question.answers[0]}</span>
+                    </label>
+                    <label class="answerChoice">
+                        <input type="radio" name="answers" id="answer2" value="${question.answers[1]}">
+                        <span class="checkmark">${question.answers[1]}</span>
+                    </label>
+                    <label class="answerChoice">
+                        <input type="radio" name="answers" id="answer3" value="${question.answers[2]}">
+                        <span class="checkmark">${question.answers[2]}</span>
+                    </label>
+                    <label class="answerChoice">
+                        <input type="radio" name="answers" id="answer4" value="${question.answers[3]}">
+                        <span class="checkmark">${question.answers[3]}</span>
+                    </label>
+                    <button>Submit</button>
+                </form>
+            </div>
+        </div>
+    `;
+  } 
+}
+
+function main(){
+  renderPage();
+  STORE.quizStarted == false;
+}
 
 /********** RENDER FUNCTION(S) **********/
 
 // This function conditionally replaces the contents of the <main> tag based on the state of the store
+function renderPage(){
+  let html = generateHTML();
+  $('main').html(html);
+}
 
 /********** EVENT HANDLER FUNCTIONS **********/
 
 // These functions handle events (submit, click, etc)
-
-/*
-
-/*********** For reference - Delete Later **********/
-/*********** From Shopping List App **********/
-/*
-const STORE = [
-  { id: cuid(), name: 'apples', checked: false },
-  { id: cuid(), name: 'oranges', checked: false },
-  { id: cuid(), name: 'milk', checked: true },
-  { id: cuid(), name: 'bread', checked: false }
-];
-
-
-function generateItemElement(item) {
-  return `
-    <li data-item-id="${item.id}">
-      <span class="shopping-item js-shopping-item ${item.checked ? 'shopping-item__checked' : ''}">${item.name}</span>
-      <div class="shopping-item-controls">
-        <button class="shopping-item-toggle js-item-toggle">
-            <span class="button-label">check</span>
-        </button>
-        <button class="shopping-item-delete js-item-delete">
-            <span class="button-label">delete</span>
-        </button>
-      </div>
-    </li>`;
+function submitAnswer(event){
+  event.preventDefault();
+  let answer = $('input[name=answers]:checked').val();
+  STORE.questions[STORE.questionNumber].correctAnswer == answer ? STORE.score++ : console.log('wrong');
+  STORE.questionNumber < 4 ? STORE.questionNumber++ : STORE.quizCompleted = true;
+  renderPage();
 }
 
-
-function generateShoppingItemsString(shoppingList) {
-  console.log('Generating shopping list element');
-
-  const items = shoppingList.map((item) => generateItemElement(item));
-
-  return items.join('');
+function getStarted(event){
+  event.preventDefault();
+  STORE.quizStarted = true;
+  renderPage();
 }
 
-
-function renderShoppingList() {
-  // render the shopping list in the DOM
-  console.log('`renderShoppingList` ran');
-  const shoppingListItemsString = generateShoppingItemsString(STORE);
-
-  // insert that HTML into the DOM
-  $('.js-shopping-list').html(shoppingListItemsString);
+function restartIt(event){
+  event.preventDefault();
+  STORE.quizStarted = false;
+  STORE.quizCompleted = false;
+  STORE.score = 0;
+  STORE.questionNumber = 0;
+  renderPage();
 }
 
+$('main').on('submit','.answerSelection',submitAnswer);
+$('main').on('click','.gettingStarted',getStarted);
+$('main').on('click','.restart',restartIt);
 
-function addItemToShoppingList(itemName) {
-  console.log(`Adding "${itemName}" to shopping list`);
-  STORE.push({ id: cuid(), name: itemName, checked: false });
-}
-
-function handleNewItemSubmit() {
-  $('#js-shopping-list-form').submit(function (event) {
-    event.preventDefault();
-    console.log('`handleNewItemSubmit` ran');
-    const newItemName = $('.js-shopping-list-entry').val();
-    $('.js-shopping-list-entry').val('');
-    addItemToShoppingList(newItemName);
-    renderShoppingList();
-  });
-}
-
-function toggleCheckedForListItem(itemId) {
-  console.log('Toggling checked property for item with id ' + itemId);
-  const item = STORE.find(item => item.id === itemId);
-  item.checked = !item.checked;
-}
-
-
-function getItemIdFromElement(item) {
-  return $(item)
-    .closest('li')
-    .data('item-id');
-}
-
-function handleItemCheckClicked() {
-  $('.js-shopping-list').on('click', '.js-item-toggle', event => {
-    console.log('`handleItemCheckClicked` ran');
-    const id = getItemIdFromElement(event.currentTarget);
-    toggleCheckedForListItem(id);
-    renderShoppingList();
-  });
-}
-
-function deleteListItem(itemId) {
-  console.log(`Deleting an item with id ${itemId}`);
- const deletedItem = STORE.findIndex(item => item.id === itemId);
- STORE.splice(deletedItem, 1);
-}
-
-function handleDeleteItemClicked() {
- // this function will be responsible for when users want to delete a shopping list
- // item
- $('.js-shopping-list').on('click', '.js-item-delete', event => {
-   console.log('`handleDeleteItemClicked` ran');
-   const id = getItemIdFromElement(event.currentTarget);
-   deleteListItem(id);
-   renderShoppingList();
- });
-}
-
-// this function will be our callback when the page loads. it's responsible for
-// initially rendering the shopping list, and activating our individual functions
-// that handle new item submission and user clicks on the "check" and "delete" buttons
-// for individual shopping list items.
-function handleShoppingList() {
- renderShoppingList();
- handleNewItemSubmit();
- handleItemCheckClicked();
- handleDeleteItemClicked();
-}
-
-// when the page loads, call `handleShoppingList`
-$(handleShoppingList);
-*/
+$(main);

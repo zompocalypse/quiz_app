@@ -3,57 +3,58 @@ const STORE = {
   // 5 or more questions are required
   questions: [
     {
-      question: 'Who is Ash Ketchum?',
+      question: 'What is the one common thing that links all towns in the Kanto Region?',
       answers: [
-        'Pokemon Trainer',
-        'Yu-Gi-Oh! Master',
-        'A Wizard at Hogwarts',
-        'A Jedi'
+        'They are named after colors',
+        'They are named after Pokemon',
+        'They all have Pokemon Gyms',
+        'They are all named after Olympian Gods'
       ],
-      correctAnswer: 'Pokemon Trainer'
+      correctAnswer: 'They are named after colors'
     },
     {
-      question: 'Where is a Yu-Gi-Oh! match played?',
+      question: 'What is the most effective Poke Ball in the game?',
       answers: [
-        'Pokemon Arena',
-        'Outside',
-        'Duel Terminal',
-        'On a table'
+        'Great Ball',
+        'Ultra Ball',
+        'Master Ball',
+        'Luxury Ball'
       ],
-      correctAnswer: 'Duel Terminal'
+      correctAnswer: 'Master Ball'
     },
     {
-      question: 'What does MTG stand for?',
+      question: 'Which of these pairs is not a Pokemon game version?',
       answers: [
-        'Minimum to get',
-        'Magic the Gathering',
-        'DMaximum time gained',
-        'Meet the group'
+        'Diamond and Pearl',
+        'Sword and Shield',
+        'Rock and Stone',
+        'FireRed and LeafGreen'
       ],
-      correctAnswer: 'Magic the Gathering'
+      correctAnswer: 'Rock and Stone'
     },
     {
-      question: 'What is Pikachu?',
+      question: 'What is Pikachu exactly?',
       answers: [
         'Hedgehog',
-        'Kangaroo',
+        'Squirrel',
         'Cat',
         'Mouse'
       ],
       correctAnswer: 'Mouse'
     },
     {
-      question: 'What is Yusei searching for?',
+      question: 'How many times has Ash died?',
       answers: [
-        'Millennial puzzle pieces',
-        'Dragon Balls',
-        'Triforce of Light',
-        'Demon Shards'
+        '0',
+        '3',
+        '7',
+        '12'
       ],
-      correctAnswer: 'Millennial puzzle pieces'
+      correctAnswer: '3'
     }
   ],
   quizStarted: false,
+  quizCompleted: false,
   questionNumber: 0,
   score: 0
 };
