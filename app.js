@@ -26,6 +26,31 @@ function generateHTML() {
             <button class="gettingStarted">Go!</button>
         </div>
     `;
+    /*<div class="hero-image">
+    <div class="hero-text">
+  <h1>Test your knowledge about Trading Card Games</h1>
+</header>
+<main>
+  <div class="container">
+    <div class="box">
+
+    </div>
+
+    <div class="hero-image1">
+    <div class= Start-Page>
+      <h2>Press select start to continue</h2>
+    </div>
+    <div class="center">
+        <button class="button">START</button>
+          </div>
+        </div>
+          </div>
+          <div></div>
+        </div>
+      </div>
+    </div>
+  </div> */
+
   } 
   if(STORE.quizCompleted === true){
     return `
@@ -38,7 +63,7 @@ function generateHTML() {
   } else {
     return `
         <div class="container">
-            <div class="quesitons">
+            <div class="questions">
                 <div class="questionCount">
                     <h2>Question ${STORE.questionNumber +1} of 5</h2>
                     <div class="scorekeeper">
