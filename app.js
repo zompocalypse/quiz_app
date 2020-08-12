@@ -33,7 +33,7 @@ function renderStartPage(){
 function renderFinalPage(){
   if(STORE.score < 5){
     $('main').html(`
-        <div class="container center">
+        <div class="container">
             <img src="img/overwhelmed.png" alt="screenshot from Pokémon video game where the player was defeated">
             <h2 class="center">You got ${STORE.score} of 5</h2>
             <h3 class="center">Aww...  I thought you were a Pokémon Master.</h3>
@@ -65,7 +65,7 @@ function renderQuestionPage(){
     <div class="container">
         <div class="questions">
             <div class="questionCount">
-                <h2>Question ${STORE.questionNumber +1} of 5</h2>
+                <h2>Question ${STORE.questionNumber +1} of ${STORE.questions.length}</h2>
                 <div class="scorekeeper">
                     <p>correct: ${STORE.score}</p>
                     <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
@@ -108,7 +108,7 @@ function renderSolutionCorrect(){
         <div class="container">
             <div class="questions">
                 <div class="questionCount">
-                    <h2>Question ${STORE.questionNumber +1} of 5</h2>
+                    <h2>Question ${STORE.questionNumber +1} of ${STORE.questions.length}</h2>
                     <div class="scorekeeper">
                         <p>correct: ${STORE.score}</p>
                         <p>incorrect: ${STORE.incorrect}</p>
@@ -136,7 +136,7 @@ function renderSolutionIncorrect(){
           <div class="container">
               <div class="questions">
                   <div class="questionCount">
-                      <h2>Question ${STORE.questionNumber +1} of 5</h2>
+                      <h2>Question ${STORE.questionNumber +1} of ${STORE.questions.length}</h2>
                       <div class="scorekeeper">
                           <p>correct: ${STORE.score}</p>
                           <p>incorrect: ${STORE.incorrect}</p>
