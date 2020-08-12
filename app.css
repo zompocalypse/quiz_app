@@ -12,7 +12,13 @@ body {
 h1 {
  font-size: 30px;
  text-align: center;
+<<<<<<< HEAD
  Font-Family: 'Ruda', Sans-Serif;
+=======
+ font-family:'Crimson Pro', serif;
+
+
+>>>>>>> ad41823b412e832ad5d33ef1dc404494ac716a3f
 }
 
 h2 {
@@ -79,6 +85,7 @@ img {
   align-items: center; 
 }
 
+<<<<<<< HEAD
 @media all and (max-width: 600px) {
   
   }
@@ -88,3 +95,5 @@ img {
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
 */
+=======
+>>>>>>> ad41823b412e832ad5d33ef1dc404494ac716a3f
