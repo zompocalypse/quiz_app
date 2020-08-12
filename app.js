@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 'use strict';
 /**
  *
@@ -30,15 +31,32 @@ function generateHTML() {
     `;
   } 
   if(STORE.quizCompleted === true){
-    return `
+    if(STORE.score < 5){
+      return `
         <div class="container">
-            <h2>You finished!</h2>
-            <h3>You got ${STORE.score} of 5</h3>
+            <img src="img/overwhelmed.png" alt="screenshot from Pokémon video game where the player was defeated">
+            <h2>You got ${STORE.score} of 5</h2>
+            <h3>Aww...  I thought you were a Pokémon Master.</h3>
+            <p class="center">Click restart so you can try to catch them all and be the very best!</p>
             <div class="center">
                 <button class="restart button">Restart?</button>
             </div>
         </div>
     `;
+    } else {
+      return `
+        <div class="container">
+            <img src="img/leagueWin.jpg" alt="Ash holding the Pokémon Legaue trophy with his team">
+            <h2>You got ${STORE.score} of 5</h2>
+            <h3>You wanted to be the very best... and you are.</h3>
+            <h2 class="center">Congratulations!</h2>
+            <p class="center">Click Restart take the quiz again.</p>
+            <div class="center">
+                <button class="restart button">Restart?</button>
+            </div>
+        </div>
+    `;
+    }
   } else {
     return `
         <div class="container">
@@ -50,7 +68,7 @@ function generateHTML() {
                         <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
                     </div>
                 </div>
-                <img class='hero' src='${question.image}' alt='' />
+                <img class='hero' src='${question.image}' alt=''>
                 <h3>${question.question}</h3>
                 <form class="answerSelection">
                     <label class="answerChoice">
@@ -81,7 +99,6 @@ function generateHTML() {
 
 function main(){
   renderPage();
-  STORE.quizStarted === false;
 }
 
 /********** RENDER FUNCTION(S) **********/

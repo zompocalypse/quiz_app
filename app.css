@@ -6,11 +6,13 @@ main {
 body {
   max-width: 600px;
   margin: auto;
+  Font-Family: 'Roboto Slab', Serif;
 }
 
 h1 {
  font-size: 30px;
  text-align: center;
+ Font-Family: 'Ruda', Sans-Serif;
 }
 
 h2 {
@@ -48,16 +50,6 @@ img {
   width: 100%;
 }
 
-@media all and (max-width: 600px) {
-  
-  }
-/** 
-  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
-  *
-  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
-  *
-*/
-
 .button {
   display: inline-block;
   padding: 15px 25px;
@@ -87,49 +79,12 @@ img {
   align-items: center; 
 }
 
-.hero-image {
-  background-image: url("/img/yugio1.jpg");
-  background-color:#ffffff;
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-.hero-text {
-  text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-10%, -50%);
-  color:#ffff;
-}
-
-.hero-image1 {
-  background-image: url("/img/wholepika.jpg");
-  background-color: #ffffff;
-  height: 500px;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
-}
-
-#myDIV {
-  position: absolute;
-  width: 100px;
-  height: 100px;
-  background-color: coral;
-  color: white;
-  bottom: 0px;
-  animation: mymove 5s infinite;
-}
-
-@keyframes mymove {
-  50% {bottom: 300px;}
-}
-</style>
-</head>
-<body>
-
+@media all and (max-width: 600px) {
+  
+  }
+/** 
+  * If you are unclear on how to utilize a mobile-first, responsive technique to write your CSS, here is an example: 
+  *
+  * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
+  *
+*/
