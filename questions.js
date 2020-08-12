@@ -6,8 +6,8 @@ const STORE = {
       question: 'What is the one common thing that links all towns in the Kanto Region?',
       answers: [
         'They are named after colors',
-        'They are named after Pokemon',
-        'They all have Pokemon Gyms',
+        'They are named after Pokémon',
+        'They all have Pokémon Gyms',
         'They are all named after Olympian Gods'
       ],
       correctAnswer: 'They are named after colors',
@@ -24,7 +24,7 @@ const STORE = {
       ],
       correctAnswer: 'Master Ball',
       image: 'img/pokeball.jpg',
-      explanation: 'insert explanation'
+      explanation: 'The Master Ball is the best ball in the game. It will capture any Pokémon with a 0% chance of failure, including Legendaries.'
     },
     {
       question: 'Which of these pairs is not a Pokémon game version?',
@@ -36,7 +36,7 @@ const STORE = {
       ],
       correctAnswer: 'Rock and Stone',
       image:'img/pokef.jpg',
-      explanation: 'insert explanation'
+      explanation: 'Rock and Stone is not a version of Pokémon game franchise. Rock is a type of Pokémon only.'
     },
     {
       question: 'What is Pikachu exactly?',
@@ -48,7 +48,7 @@ const STORE = {
       ],
       correctAnswer: 'Mouse',
       image:'img/pikama.jpg',
-      explanation: 'insert explanation'
+      explanation: 'Although the inspiration for Pikachu was a squirrel, they are mouse Pokémon or electric rodents.'
     },
     {
       question: 'How many times has Ash died?',
@@ -60,7 +60,7 @@ const STORE = {
       ],
       correctAnswer: '3',
       image:'img/ashd.jpg',
-      explanation: 'insert explanation'
+      explanation: 'Much to the destruction of the mental states of children everywhere, Ash died three times.  Lucky for him, the tears of his beloved companion, Pikachu, can bring him back to life.'
     }
   ],
   questionNumber: 0,

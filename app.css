@@ -44,6 +44,7 @@ font-size: 20px;
   background-color: #2196F3;
   padding: 10px 20px;
   line-height: 0em;
+  margin-bottom: 15px;
 }
 
 img {
@@ -51,26 +52,22 @@ img {
 }
 
 .button {
-  display: inline-block;
-  padding: 15px 25px;
-  font-size: 24px;
-  cursor: pointer;
+  background-color: #4CAF50;
+  border: none;
+  color: white;
+  padding: 15px 32px;
   text-align: center;
   text-decoration: none;
-  outline: none;
-  color: #fff;
-  background-color: #9B8816;
-  border: none;
-  border-radius: 15px;
-  box-shadow: 0 9px #999;
+  display: inline-block;
+  font-size: 16px;
+  margin: 20px 2px 4px;
+  cursor: pointer;
 }
 
 .button:hover {background-color: 82, 0, 9, 40}
 
 .button:active {
   background-color: 82, 0, 9, 40;
-  box-shadow: 0 5px #666;
-  transform: translateY(4px);
 }
 
 .center {

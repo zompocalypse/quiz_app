@@ -21,8 +21,8 @@
 function renderStartPage(){
   $('main').html(`
     <div class="container">
-         <image src = 'img/pokestart.jpg'
-         <h3>Press the button below to get started</h3>
+         <image src = 'img/pokestart.jpg'>
+         <h2 class="center">Press the button below to get started</h2>
          <div class="center">
              <button class="gettingStarted button">Start</button>
          </div>
@@ -33,10 +33,10 @@ function renderStartPage(){
 function renderFinalPage(){
   if(STORE.score < 5){
     $('main').html(`
-        <div class="container">
+        <div class="container center">
             <img src="img/overwhelmed.png" alt="screenshot from Pokémon video game where the player was defeated">
-            <h2>You got ${STORE.score} of 5</h2>
-            <h3>Aww...  I thought you were a Pokémon Master.</h3>
+            <h2 class="center">You got ${STORE.score} of 5</h2>
+            <h3 class="center">Aww...  I thought you were a Pokémon Master.</h3>
             <p class="center">Click restart so you can try to catch them all and be the very best!</p>
             <div class="center">
                 <button class="restart button">Restart?</button>
@@ -47,8 +47,8 @@ function renderFinalPage(){
     $('main').html(`
         <div class="container">
             <img src="img/leagueWin.jpg" alt="Ash holding the Pokémon Legaue trophy with his team">
-            <h2>You got ${STORE.score} of 5</h2>
-            <h3>You wanted to be the very best... and you are.</h3>
+            <h2 class="center">You got ${STORE.score} of 5</h2>
+            <h3 class="center">You wanted to be the very best... and you are.</h3>
             <h2 class="center">Congratulations!</h2>
             <p class="center">Click Restart take the quiz again.</p>
             <div class="center">
