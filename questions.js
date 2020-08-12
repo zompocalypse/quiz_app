@@ -10,7 +10,9 @@ const STORE = {
         'They all have Pokemon Gyms',
         'They are all named after Olympian Gods'
       ],
-      correctAnswer: 'They are named after colors'
+      correctAnswer: 'They are named after colors',
+      image: 'img/wholepika.jpg',
+      explanation: 'All towns in the Kanto region are named after colors.  The towns are named Viridian City, Pewter City, Cerulean City, Vermilion City, Lavender Town, Celadon City, Fuchsia City.  Although not a color, Pallet Town, Ash\'s fits the pattern.'
     },
     {
       question: 'What is the most effective Poke Ball in the game?',

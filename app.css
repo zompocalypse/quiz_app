@@ -44,6 +44,10 @@ font-size: 20px;
   line-height: 0em;
 }
 
+img {
+  width: 100%;
+}
+
 @media all and (max-width: 600px) {
   
   }
@@ -52,7 +56,9 @@ font-size: 20px;
   *
   * https://github.com/andreacardybailey/responsive_example/blob/master/styles/responsive-base.css 
   *
-*/.button {
+*/
+
+.button {
   display: inline-block;
   padding: 15px 25px;
   font-size: 24px;
@@ -78,15 +84,7 @@ font-size: 20px;
 .center {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 400px;
-  border: 3px solid #700353 ; 
-
-}
-
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  align-items: center; 
 }
 
 .hero-image {

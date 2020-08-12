@@ -23,41 +23,20 @@ function generateHTML() {
     return `
         <div class="container">
             <h3>Press the button below to get started</h3>
-            <button class="gettingStarted">Go!</button>
+            <div class="center">
+                <button class="gettingStarted button">Start</button>
+            </div>
         </div>
     `;
-    /*<div class="hero-image">
-    <div class="hero-text">
-  <h1>Test your knowledge about Trading Card Games</h1>
-</header>
-<main>
-  <div class="container">
-    <div class="box">
-
-    </div>
-
-    <div class="hero-image1">
-    <div class= Start-Page>
-      <h2>Press select start to continue</h2>
-    </div>
-    <div class="center">
-        <button class="button">START</button>
-          </div>
-        </div>
-          </div>
-          <div></div>
-        </div>
-      </div>
-    </div>
-  </div> */
-
   } 
   if(STORE.quizCompleted === true){
     return `
         <div class="container">
             <h2>You finished!</h2>
             <h3>You got ${STORE.score} of 5</h3>
-            <button class="restart">Restart?</button>
+            <div class="center">
+                <button class="restart button">Restart?</button>
+            </div>
         </div>
     `;
   } else {
@@ -71,10 +50,11 @@ function generateHTML() {
                         <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
                     </div>
                 </div>
+                <img class='hero' src='${question.image}' alt='' />
                 <h3>${question.question}</h3>
                 <form class="answerSelection">
                     <label class="answerChoice">
-                        <input type="radio" name="answers" id="answer1" value="${question.answers[0]}">
+                        <input type="radio" name="answers" id="answer1" value="${question.answers[0]}" required>
                         <span class="checkmark">${question.answers[0]}</span>
                     </label>
                     <label class="answerChoice">
@@ -89,7 +69,9 @@ function generateHTML() {
                         <input type="radio" name="answers" id="answer4" value="${question.answers[3]}">
                         <span class="checkmark">${question.answers[3]}</span>
                     </label>
-                    <button>Submit</button>
+                    <div class="center">
+                        <button class="button">Submit</button>
+                    </div>
                 </form>
             </div>
         </div>
