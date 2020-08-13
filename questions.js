@@ -13,6 +13,7 @@ const STORE = {
       ],
       correctAnswer: 'They are named after colors',
       image: 'img/Kanto.png',
+      imageAlt: 'Overhead map view of the Kanto Region',
       explanation: 'All towns in the Kanto region are named after colors.  The towns are named Viridian City, Pewter City, Cerulean City, Vermilion City, Lavender Town, Celadon City, Fuchsia City.  Although not a color, Pallet Town, Ash\'s hometown still fits the theme.'
     },
     {
@@ -25,6 +26,7 @@ const STORE = {
       ],
       correctAnswer: 'Master Ball',
       image: 'img/pokeball.jpg',
+      imageAlt: 'A transparent Poké Ball with a Pokémon, Dratini, inside',
       explanation: 'The Master Ball is the best ball in the game. It will capture any Pokémon with a 0% chance of failure, including Legendaries.'
     },
     {
@@ -37,6 +39,7 @@ const STORE = {
       ],
       correctAnswer: 'Rock and Stone',
       image:'img/pokef.jpg',
+      imageAlt: 'A screenshot from a battle from a Pokémon video game',
       explanation: 'Rock and Stone is not a version of Pokémon game franchise. Rock is a type of Pokémon only.'
     },
     {
@@ -49,6 +52,7 @@ const STORE = {
       ],
       correctAnswer: 'Mouse',
       image:'img/covid-pikachu.png',
+      imageAlt: 'Pikachu jumping through the air wearing a surgical mask and blue latex gloves',
       explanation: 'Although the inspiration for Pikachu was a squirrel, they are mouse Pokémon or electric rodents.'
     },
     {
@@ -61,6 +65,7 @@ const STORE = {
       ],
       correctAnswer: '3',
       image:'img/ash-died.jpg',
+      imageAlt: 'A sad Pikachu standing over Ash, who has turned to stone and died',
       explanation: 'Much to the destruction of the mental states of children everywhere, Ash died three times.  Lucky for him, the tears of his beloved companion, Pikachu, can bring him back to life.'
     }
   ],

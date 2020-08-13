@@ -21,7 +21,7 @@
 function renderStartPage(){
   $('main').html(`
     <div class="container">
-         <image src = 'img/ash-and-pikachu.jpg'>
+         <image src = 'img/ash-and-pikachu.jpg' alt='Ash and Pikachu looking happy together'>
          <h2 class="center">Are you ready to find out if you are a Pokémon Master?</h2>
          <h3 class="center">Press the button below to get started</h3>
          <div class="center">
@@ -72,7 +72,7 @@ function renderQuestionPage(){
                     <p>incorrect: ${(STORE.questionNumber) - STORE.score}</p>
                 </div>
             </div>
-            <img class='hero' src='${question.image}' alt=''>
+            <img class='hero' src='${question.image}' alt='${question.imageAlt}'>
             <h3>${question.question}</h3>
             <form class="answerSelection">
                 <label class="answerChoice">
@@ -115,7 +115,7 @@ function renderSolutionCorrect(){
                         <p>incorrect: ${STORE.incorrect}</p>
                     </div>
                 </div>
-                <img class='hero' src='${question.image}' alt=''>
+                <img class='hero' src='${question.image}' alt='${question.imageAlt}'>
                 <h3>${question.question}</h3>
                 <form class="nextSelection">
                     <div>
@@ -143,7 +143,7 @@ function renderSolutionIncorrect(){
                           <p>incorrect: ${STORE.incorrect}</p>
                       </div>
                   </div>
-                  <img class='hero' src='${question.image}' alt=''>
+                  <img class='hero' src='${question.image}' alt='${question.imageAlt}'>
                   <h3>${question.question}</h3>
                   <form class="nextSelection">
                     <div>
