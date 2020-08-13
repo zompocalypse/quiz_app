@@ -74,6 +74,20 @@ img {
   display: flex;
   justify-content: center;
   align-items: center; 
+  text-align: center;
+}
+
+.bold {
+  font-weight: bolder;
+  font-size: 30px;
+}
+
+.green {
+  color: green;
+}
+
+.red {
+  color: red;
 }
 
 @media all and (max-width: 600px) {

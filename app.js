@@ -21,8 +21,9 @@
 function renderStartPage(){
   $('main').html(`
     <div class="container">
-         <image src = 'img/pokestart.jpg'>
-         <h2 class="center">Press the button below to get started</h2>
+         <image src = 'img/ash-and-pikachu.jpg'>
+         <h2 class="center">Are you ready to find out if you are a Pokémon Master?</h2>
+         <h3 class="center">Press the button below to get started</h3>
          <div class="center">
              <button class="gettingStarted button">Start</button>
          </div>
@@ -118,7 +119,7 @@ function renderSolutionCorrect(){
                 <h3>${question.question}</h3>
                 <form class="nextSelection">
                     <div>
-                        <h3>You are correct!</h3>
+                        <h3 class="center bold green">You are correct!</h3>
                         <p>${question.explanation}</p>
                     </div>
                     <div class="center">
@@ -146,7 +147,7 @@ function renderSolutionIncorrect(){
                   <h3>${question.question}</h3>
                   <form class="nextSelection">
                     <div>
-                        <h3>Sorry, you are incorrect!</h3>
+                        <h3 class="center bold red">Sorry, you are incorrect!</h3>
                         <p>${question.explanation}</p>
                     </div>
                     <div class="center">
