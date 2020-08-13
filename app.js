@@ -191,6 +191,7 @@ function getStarted(event){
 function restartIt(event){
   event.preventDefault();
   STORE.score = 0;
+  STORE.incorrect = 0;
   STORE.questionNumber = 0;
   renderStartPage();
 }
