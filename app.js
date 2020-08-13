@@ -34,7 +34,7 @@ function renderFinalPage(){
   if(STORE.score < 5){
     $('main').html(`
         <div class="container">
-            <img src="img/overwhelmed.png" alt="screenshot from Pokémon video game where the player was defeated">
+            <img src="img/overwhelm.png" alt="screenshot from Pokémon video game where the player was defeated">
             <h2 class="center">You got ${STORE.score} of 5</h2>
             <h3 class="center">Aww...  I thought you were a Pokémon Master.</h3>
             <p class="center">Click restart so you can try to catch them all and be the very best!</p>
