@@ -12,7 +12,7 @@ const STORE = {
         'They are all named after Olympian Gods'
       ],
       correctAnswer: 'They are named after colors',
-      image: 'img/wholepika.jpg',
+      image: 'img/Kanto.png',
       explanation: 'All towns in the Kanto region are named after colors.  The towns are named Viridian City, Pewter City, Cerulean City, Vermilion City, Lavender Town, Celadon City, Fuchsia City.  Although not a color, Pallet Town, Ash\'s fits the pattern.'
     },
     {
@@ -48,7 +48,7 @@ const STORE = {
         'Hedgehog'
       ],
       correctAnswer: 'Mouse',
-      image:'img/pikama.jpg',
+      image:'img/covid-pikachu.png',
       explanation: 'Although the inspiration for Pikachu was a squirrel, they are mouse Pokémon or electric rodents.'
     },
     {
@@ -60,7 +60,7 @@ const STORE = {
         '12'
       ],
       correctAnswer: '3',
-      image:'img/ashd.jpg',
+      image:'img/ash-died.jpg',
       explanation: 'Much to the destruction of the mental states of children everywhere, Ash died three times.  Lucky for him, the tears of his beloved companion, Pikachu, can bring him back to life.'
     }
   ],
