@@ -1,5 +1,3 @@
-/* eslint-disable no-undef */
-
 /**
  *
  * Technical requirements:
@@ -18,7 +16,7 @@
 /********** TEMPLATE GENERATION AND RENDER FUNCTIONS **********/
 
 // These functions return HTML templates and render them
-function renderStartPage(){
+function renderStartPage() {
   $('main').html(`
     <div class="container">
          <image src = 'img/ash-and-pikachu.jpg' alt='Ash and Pikachu looking happy together'>
@@ -31,8 +29,8 @@ function renderStartPage(){
  `);
 }
 
-function renderFinalPage(){
-  if(STORE.score < 5){
+function renderFinalPage() {
+  if(STORE.score < 5) {
     $('main').html(`
         <div class="container">
             <img src="img/overwhelm.png" alt="screenshot from Pokémon video game where the player was defeated">
@@ -60,7 +58,7 @@ function renderFinalPage(){
   }
 }
 
-function renderQuestionPage(){
+function renderQuestionPage() {
   let question = STORE.questions[STORE.questionNumber];
   $('main').html(`
     <div class="container">
@@ -103,7 +101,7 @@ function renderQuestionPage(){
     `);
 }
 
-function renderSolutionCorrect(){
+function renderSolutionCorrect() {
   let question = STORE.questions[STORE.questionNumber];
   $('main').html(`
         <div class="container">
@@ -131,7 +129,7 @@ function renderSolutionCorrect(){
     `);
 }
 
-function renderSolutionIncorrect(){
+function renderSolutionIncorrect() {
   let question = STORE.questions[STORE.questionNumber];
   $('main').html(`
           <div class="container">
@@ -162,7 +160,7 @@ function renderSolutionIncorrect(){
 /********** EVENT HANDLER FUNCTIONS **********/
 
 // These functions handle events (submit, click, etc)
-function handleSubmitAnswer(){
+function handleSubmitAnswer() {
   $('main').on('submit','.answerSelection', function(event) {
     event.preventDefault();
     let answer = $('input[name=answers]:checked').val();

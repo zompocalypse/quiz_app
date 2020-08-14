@@ -1,5 +1,3 @@
-/* eslint-disable no-unused-vars */
-'use strict';
 const STORE = {
   // 5 or more questions are required
   questions: [
