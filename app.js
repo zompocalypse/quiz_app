@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-'use strict';
+
 /**
  *
  * Technical requirements:
@@ -162,48 +162,53 @@ function renderSolutionIncorrect(){
 /********** EVENT HANDLER FUNCTIONS **********/
 
 // These functions handle events (submit, click, etc)
-function submitAnswer(event){
-  event.preventDefault();
-  let answer = $('input[name=answers]:checked').val();
-  if(STORE.questions[STORE.questionNumber].correctAnswer === answer){
-    STORE.score++;
-    renderSolutionCorrect();
-  } else {
-    STORE.incorrect++;
-    renderSolutionIncorrect();
-  }
+function handleSubmitAnswer(){
+  $('main').on('submit','.answerSelection', function(event) {
+    event.preventDefault();
+    let answer = $('input[name=answers]:checked').val();
+    if(STORE.questions[STORE.questionNumber].correctAnswer === answer){
+      STORE.score++;
+      renderSolutionCorrect();
+    } else {
+      STORE.incorrect++;
+      renderSolutionIncorrect();
+    }
+  });
 }
 
-function nextQuestion(event){
-  event.preventDefault();
-  if(STORE.questionNumber < STORE.questions.length - 1){
-    STORE.questionNumber++;
+function handleNextQuestion() {
+  $('main').on('submit', '.nextSelection', function(event) {
+    event.preventDefault();
+    if (STORE.questionNumber < STORE.questions.length - 1) {
+      STORE.questionNumber++;
+      renderQuestionPage();
+    } else {
+      renderFinalPage();
+    }
+  });
+}
+
+function handleGetStarted() {
+  $('main').on('click','.gettingStarted', function(event) {
+    event.preventDefault();
     renderQuestionPage();
-  } else {
-    renderFinalPage();
-  }
+  });
 }
 
-function getStarted(event){
-  event.preventDefault();
-  renderQuestionPage();
+function handleRestartQuiz() {
+  $('main').on('click','.restart', function(event){
+    event.preventDefault();
+    STORE.score = 0;
+    STORE.incorrect = 0;
+    STORE.questionNumber = 0;
+    renderStartPage();
+  });
 }
 
-function restartIt(event){
-  event.preventDefault();
-  STORE.score = 0;
-  STORE.incorrect = 0;
-  STORE.questionNumber = 0;
+$(function() {
   renderStartPage();
-}
-
-function main(){
-  renderStartPage();
-}
-
-$('main').on('submit','.answerSelection',submitAnswer);
-$('main').on('submit','.nextSelection',nextQuestion);
-$('main').on('click','.gettingStarted',getStarted);
-$('main').on('click','.restart',restartIt);
-
-$(main);
+  handleNextQuestion();
+  handleRestartQuiz();
+  handleGetStarted();
+  handleSubmitAnswer();
+});
