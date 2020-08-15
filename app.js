@@ -13,11 +13,11 @@
  *
  */
 
-/********** TEMPLATE GENERATION AND RENDER FUNCTIONS **********/
+/********** TEMPLATE GENERATION  **********/
 
-// These functions return HTML templates and render them
-function renderStartPage() {
-  $('main').html(`
+// These functions return HTML templates
+function generateStartPage() {
+  return `
     <div class="container">
          <image src = 'img/ash-and-pikachu.jpg' alt='Ash and Pikachu looking happy together'>
          <h2 class="center">Are you ready to find out if you are a Pokémon Master?</h2>
@@ -26,12 +26,12 @@ function renderStartPage() {
              <button class="gettingStarted button">Start</button>
          </div>
      </div>
- `);
+ `;
 }
 
-function renderFinalPage() {
+function generateFinalPage() {
   if(STORE.score < 5) {
-    $('main').html(`
+    return `
         <div class="container">
             <img src="img/overwhelm.png" alt="screenshot from Pokémon video game where the player was defeated">
             <h2 class="center">You got ${STORE.score} of 5</h2>
@@ -41,9 +41,9 @@ function renderFinalPage() {
                 <button class="restart button">Restart?</button>
             </div>
         </div>
-        `);
+        `;
   } else {
-    $('main').html(`
+    return `
         <div class="container">
             <img src="img/leagueWin.jpg" alt="Ash holding the Pokémon Legaue trophy with his team">
             <h2 class="center">You got ${STORE.score} of 5</h2>
@@ -54,13 +54,13 @@ function renderFinalPage() {
                 <button class="restart button">Restart?</button>
             </div>
         </div>
-        `);
+        `;
   }
 }
 
-function renderQuestionPage() {
+function generateQuestionPage() {
   let question = STORE.questions[STORE.questionNumber];
-  $('main').html(`
+  return `
     <div class="container">
         <div class="questions">
             <div class="questionCount">
@@ -98,12 +98,12 @@ function renderQuestionPage() {
             </form>
         </div>
     </div>
-    `);
+    `;
 }
 
-function renderSolutionCorrect() {
+function ganerateSolutionCorrect() {
   let question = STORE.questions[STORE.questionNumber];
-  $('main').html(`
+  return `
         <div class="container">
             <div class="questions">
                 <div class="questionCount">
@@ -126,12 +126,12 @@ function renderSolutionCorrect() {
                 </form>
             </div>
         </div>
-    `);
+    `;
 }
 
-function renderSolutionIncorrect() {
+function generateSolutionIncorrect() {
   let question = STORE.questions[STORE.questionNumber];
-  $('main').html(`
+  return `
           <div class="container">
               <div class="questions">
                   <div class="questionCount">
@@ -154,11 +154,32 @@ function renderSolutionIncorrect() {
                 </form>
               </div>
           </div>
-      `);
+      `;
+}
+
+/********** RENDER FUNCTIONS  **********/
+// These functions render content generated in the html templates
+function renderStartPage() {
+  $('main').html(generateStartPage);
+}
+
+function renderFinalPage() {
+  $('main').html(generateFinalPage);
+}
+
+function renderQuestionPage() {
+  $('main').html(generateQuestionPage);
+}
+
+function renderSolutionCorrect() {
+  $('main').html(ganerateSolutionCorrect);
+}
+
+function renderSolutionIncorrect() {
+  $('main').html(generateSolutionIncorrect);
 }
 
 /********** EVENT HANDLER FUNCTIONS **********/
-
 // These functions handle events (submit, click, etc)
 function handleSubmitAnswer() {
   $('main').on('submit','.answerSelection', function(event) {
